@@ -1,0 +1,88 @@
+<% layout('../boilerplate') -%>
+
+
+<div class="container" ng-controller = "calendarCtrl">
+        <div class="row">
+                <div class="column">
+                <form>
+                <table border="0">
+                        <tr>
+                                <td>
+                                        <h1> Question </h1>
+                                </td>
+                        </tr>
+              
+              
+                <tr>
+                        <td><h4>Ask a Question<h4/></br>
+                                <textarea rows="10" cols="120" id="questionbox" ng-model='question'>
+                                </textarea>
+                        </td>
+                </tr>
+				  <tr>
+                        <td>
+                                <input class="btn btn-primary" id="btn" value="Submit" type="button" ng-click="update()"/>
+                        </td>
+                </tr>
+                </form>
+                </div>
+
+        </div>
+</div>
+</br>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <tbody>
+                    <tr>
+                            <td><h4>Questions asked</h4></td>
+                            
+                    </tr>
+                <tr ng-repeat="message in messages">
+                    <td>{{message.question}}</td></td>
+                    <td><a ng-click="edit($index)"><i class="icon-edit"></i></a></td>
+                    <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
+					<td><a ng-click="answer($index)"><i class="icon-book"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container" ng-controller = "calendarCtrl">
+        <div class="row">
+                <div class="column">
+                <form>
+                <table border="0">
+                <tr>
+                        <td><h4>Answer Question<h4/></br>
+                                <textarea value=" " rows="10" cols="120" id="answerbox" disabled="disabled" ng-model='answer'>
+                                </textarea>
+                        </td>
+                </tr>
+				  <tr>
+                        <td>
+                                <input class="btn btn-primary" id="btn" value="Submit" type="button" ng-click="update()"/>
+                        </td>
+                </tr>
+                </form>
+                </div>
+
+        </div>
+		</br>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <tbody>
+                    <tr>
+                            <td><h4>Answer</h4></td>
+                            
+                    </tr>
+                <tr ng-repeat="message in messages">
+                    <td>{{message.answer}}</td></td>
+                    <td><a ng-click="edit($index)"><i class="icon-edit"></i></a></td>
+                    <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
