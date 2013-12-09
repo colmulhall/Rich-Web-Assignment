@@ -1,9 +1,15 @@
-body 
-{ 
-  font-family: Tahoma; font-size: 13px; 
-} 
+body {
+	font-family: Tahoma;
+	font-size: 13px;
+	text-align:center;
+	background-color:#6495ed;
+}
 
-input#messageBox 
-{ 
-   width: 400px; 
+input#name {
+	width: 400px;
+}
+
+input#messageBox {
+	width: 400px;
+	height: 90px;
 }

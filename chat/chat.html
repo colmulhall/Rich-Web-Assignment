@@ -1,21 +1,37 @@
-<head> 
-<title>Chat</title> 
-</head> 
-<body> 
-   {{> entry}} 
-   {{> messages}} 
-</body> 
+<head>
+  <title>Chat</title>
+</head>
 
-<template name="entry"> 
-<p><input type="text" id="name" placeholder="Your Name"> 
-<input type="text" id="messageBox" placeholder="Your Message"></p> 
+<body>
+	{{> entry}}
+	{{> messages}}
+</body>
 
-</template> <template name="messages"> 
-{{#each messages}} 
-{{> message}} 
-{{/each}} 
-</template> 
+<template name="entry">
+	<table border="0" align="center">
+		<tr>
+			<td><strong>Name:</strong></td>
+			<td><input type="text" id="name" placeholder="Your Name"></td>
+			</br>
+		</tr>
+		<tr>
+			<td><strong>Message:</strong></td>
+			<td><input type="text" id="messageBox" placeholder="Your Message"></td>
+		</tr>
+	</table>
+</template>
 
-<template name="message"> 
-<p><strong>{{name}}:</strong> {{message}}</p> 
+<template name="messages">
+	{{#each messages}}
+		{{> message}}
+	{{/each}}
+</template>
+
+<template name="message">
+	<table border="0">
+		<tr>
+			<td align="right"><strong>{{name}}:</strong></td>
+			<td>{{message}}</td>
+		</tr>
+	</table>
 </template>
