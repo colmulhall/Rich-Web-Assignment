@@ -1,12 +1,6 @@
 <head>
-  <title>Q and A - Ask ALL the qesutions</title>
-  <link rel="stylesheet" type="text/css" href="public/epoll.css">
-  <!-- DC Divider CSS -->
-  <link type="text/css" rel="stylesheet" href="dreamcodes/divider/css/tsc_divider.css" />
-
   <title>Epoll : Share your opinion online, anywhere, anytime</title>
   <link rel="stylesheet" type="text/css" href="public/epoll.css">
-
 </head>
 
 <body>
@@ -15,7 +9,7 @@
     
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">Q and A</a>
+          <a class="brand" href="/">Epoll</a>
           <ul class="nav pull-right">
             <li>
               {{loginButtons}}
@@ -34,10 +28,6 @@
                         {{> banner}}
                 {{/unless}}
                 {{> questions}}
-
-
-                {{> deleteall}}
-
           </div>
 </body>
 
@@ -46,19 +36,12 @@
                 <div class="row">
                     <div class="span6">
                               <div class="well">
-
-                                <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
-                                {{loginButtons}}
-
                          <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
                          {{loginButtons}}
-
                               </div>
                         </div>
                 </div>
         </div>
-
-
 </template>
 <template name="addquestion">
   
@@ -77,42 +60,11 @@
 <template name="question">
         <div>
                 <p class="lead">
+			 <input type="button" value="X" class="delete" />
                         {{questionText}}
                         <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
 
-                          <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                        <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
                 </p>
         </div>
-        
-</template>
-<template name="addquestion">
-  
-  <textarea rows="3" class="input-xxlarge" name="questionText" id="questionText" placeholder="Add Your Question"></textarea>
-  <br/>
-  <input type="button" id="deleteButton" class="btn-info add-question" value="Add Question"/>
-</template>
-
-<template name="questions">
-        <h2>All Questions</h2>
-        {{#each items}}
-        <div class="tsc_hrline_black" style="width:80%;"></div>
-        {{> question}}
-     {{/each}}
-</template>
-
-<template name="question">
-        <div>
-                <p class="lead">
-                        {{questionText}}
-                        <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
-
-                          <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
-                </p>
-        </div>
-</template>
-
-<template name="deleteall">
-  
-  <br/>
-  <input type="button" class="btn-info delete-all" value="Delete All"/>
 </template>

@@ -14,27 +14,20 @@ Meteor.methods({
       });
     return questionId;
   },
-
-
-  
   incrementYesVotes : function(questionId){
     console.log(questionId);
     Questions.update(questionId,{$inc : {'yes':1}});
   },
 
-
   incrementNoVotes : function(questionId){
     console.log(questionId);
     Questions.update(questionId,{$inc : {'no':1}});
   },
 
-  deleteAllQs : function() {
-    Questions.remove();
+  deleteQuestion : function(questionId){
+    console.log(questionId);
+    Questions.remove(questionId);
   }
 });
 
-  incrementNoVotes : function(questionId){
-    console.log(questionId);
-    Questions.update(questionId,{$inc : {'no':1}});
-  }
-});
+

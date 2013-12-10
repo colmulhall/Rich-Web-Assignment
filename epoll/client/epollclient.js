@@ -27,18 +27,26 @@ Template.question.events({
       }
       
     },
-    'click a.no': function(){
+    'click a.no': function(event){
       event.preventDefault();
       if(Meteor.userId()){
         var questionId = Session.get('selected_question');
         console.log('updating no count for questionId '+questionId);
         Meteor.call("incrementNoVotes",questionId);
       }
+    },
+
+   'click input.delete': function (event) { 
+     event.preventDefault();
+     if(Meteor.userId()){
+        var questionId = Session.get('selected_question');
+        console.log('Deleting question '+questionId);
+        Meteor.call("deleteQuestion",questionId);
+      }
     }
+    
   });
 
 Template.questions.items = function(){
     return Questions.find({},{sort:{'submittedOn':-1}});
- };
-
  };
