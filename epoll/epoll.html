@@ -7,16 +7,16 @@
 
         <div class="navbar navbar-static-top navbar-inverse">
     
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">Q and A</a>
-          <ul class="nav pull-right">
-            <li>
-              {{loginButtons}}
-            </li>
-          </ul>
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">Q and A</a>
+            <ul class="nav pull-right">
+              <li>
+                {{loginButtons}}
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     
 </div>
 
@@ -54,17 +54,26 @@
         <h2>All Questions</h2>
         {{#each items}}
         {{> question}}
-     {{/each}}
+        {{/each}}
 </template>
 
 <template name="question">
         <div>
                 <p class="lead">
-			 <input type="button" value="X" class="delete" />
+			                  
                         {{questionText}}
+                        </br>
+
                         <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
 
-                        <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                        <a class="btn btn-small btn-warning no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+
+                        <a class="btn btn-small btn-danger delete pull-right{{#unless currentUser}}disabled{{/unless}}" allign="right" href="#"><i class="icon-remove"></i>Delete
+                        {{delete}}</a>
+
+                        
+
+                        <div class="line-separator"></div>
                 </p>
         </div>
 </template>

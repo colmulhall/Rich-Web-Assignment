@@ -38,7 +38,7 @@ Template.question.events({
       }
     },
 
-   'click input.delete': function (event) { 
+   'click a.delete': function (event) { 
      event.preventDefault();
      if(Meteor.userId()){
         var questionId = Session.get('selected_question');
