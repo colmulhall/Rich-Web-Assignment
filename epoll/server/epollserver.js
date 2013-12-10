@@ -29,5 +29,3 @@ Meteor.methods({
     Questions.remove(questionId);
   }
 });
-
-
