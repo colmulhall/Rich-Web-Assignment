@@ -1,40 +1,23 @@
 <head>
-<<<<<<< HEAD
   <title>Q&A</title>
-=======
+
   <title>Q and A : Ask any question.</title>
->>>>>>> c2d660e2d889cb29082fb92a982b7a032388654e
+
   <link rel="stylesheet" type="text/css" href="public/epoll.css">
 </head>
 
 <body>
 
         <div class="navbar navbar-static-top navbar-inverse">
-    
-<<<<<<< HEAD
-        <div class="navbar-inner">
-          <div class="container">
-            <a class="brand" href="/">Q and A</a>
-            <ul class="nav pull-right">
-              <li>
-                {{loginButtons}}
-              </li>
-            </ul>
-          </div>
-=======
       <div class="navbar-inner">
         <div class="container">
-<<<<<<< HEAD
+
           <a class="brand" href="/">Q & A</a>
-=======
-          <a class="brand" href="/">Q and A</a>
->>>>>>> c2d660e2d889cb29082fb92a982b7a032388654e
-          <ul class="nav pull-right">
+          <ul class="navbar pull-right">
             <li>
               {{loginButtons}}
             </li>
           </ul>
->>>>>>> 0151bd4fd7fe7b86d71469509040517404ffe32d
         </div>
     
 </div>
@@ -83,12 +66,13 @@
                         {{questionText}}
                         </br>
 
-                        <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+                        <a class="btn btn-small btn-success yes {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
 
-                        <a class="btn btn-small btn-warning no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                        <a class="btn btn-small btn-warning no {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
 
-                        <a class="btn btn-small btn-danger delete pull-right{{#unless currentUser}}disabled{{/unless}}" allign="right" href="#"><i class="icon-remove"></i>Delete
-                        {{delete}}</a>
+                        <a class="pull-right btn btn-small btn-danger delete {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-remove" ></i>Delete {{delete}}</a>
+                      </br>
+                        <a class="pull-right btn btn-small btn-primary answer {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-share" ></i>Answer {{answer}}</a>
 
                         
 
