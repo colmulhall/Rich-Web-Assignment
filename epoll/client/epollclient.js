@@ -39,4 +39,8 @@ Template.question.events({
 
 Template.questions.items = function(){
     return Questions.find({},{sort:{'submittedOn':-1}});
+<<<<<<< HEAD
  };
+=======
+ };
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d

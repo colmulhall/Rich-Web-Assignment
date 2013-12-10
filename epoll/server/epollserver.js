@@ -14,11 +14,15 @@ Meteor.methods({
       });
     return questionId;
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d
   incrementYesVotes : function(questionId){
     console.log(questionId);
     Questions.update(questionId,{$inc : {'yes':1}});
   },
+<<<<<<< HEAD
 
   incrementNoVotes : function(questionId){
     console.log(questionId);
@@ -29,3 +33,12 @@ Meteor.methods({
     Questions.remove();
   }
 });
+=======
+  incrementNoVotes : function(questionId){
+    console.log(questionId);
+    Questions.update(questionId,{$inc : {'no':1}});
+  }
+});
+
+
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d

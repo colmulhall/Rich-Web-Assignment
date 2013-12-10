@@ -1,8 +1,13 @@
 <head>
+<<<<<<< HEAD
   <title>Q and A - Ask ALL the qesutions</title>
   <link rel="stylesheet" type="text/css" href="public/epoll.css">
   <!-- DC Divider CSS -->
   <link type="text/css" rel="stylesheet" href="dreamcodes/divider/css/tsc_divider.css" />
+=======
+  <title>Epoll : Share your opinion online, anywhere, anytime</title>
+  <link rel="stylesheet" type="text/css" href="public/epoll.css">
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d
 </head>
 
 <body>
@@ -30,8 +35,11 @@
                         {{> banner}}
                 {{/unless}}
                 {{> questions}}
+<<<<<<< HEAD
 
                 {{> deleteall}}
+=======
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d
           </div>
 </body>
 
@@ -40,12 +48,44 @@
                 <div class="row">
                     <div class="span6">
                               <div class="well">
+<<<<<<< HEAD
                                 <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
                                 {{loginButtons}}
+=======
+                         <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
+                         {{loginButtons}}
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d
                               </div>
                         </div>
                 </div>
         </div>
+<<<<<<< HEAD
+=======
+</template>
+<template name="addquestion">
+  
+  <textarea rows="3" class="input-xxlarge" name="questionText" id="questionText" placeholder="Add Your Question"></textarea>
+  <br/>
+  <input type="button" class="btn-info add-question" value="Add Question"/>
+</template>
+
+<template name="questions">
+        <h2>All Questions</h2>
+        {{#each items}}
+        {{> question}}
+     {{/each}}
+</template>
+
+<template name="question">
+        <div>
+                <p class="lead">
+                        {{questionText}}
+                        <a class="btn btn-small btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+
+                          <a class="btn btn-small btn-danger no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                </p>
+        </div>
+>>>>>>> fca180be1061af644df93eabce64bc6850a9b25d
 </template>
 <template name="addquestion">
   
