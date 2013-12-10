@@ -8,6 +8,7 @@ angular.module("Calendar",[])
             $scope.messages.unshift(data);
 			document.getElementById("questionbox").value="";
 			document.getElementById("answerbox").value="";
+			document.getElementById("answerbox").disabled=true;
             $scope.date = "";
           });
 

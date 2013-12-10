@@ -35,8 +35,7 @@
         <table class="table">
             <tbody>
                     <tr>
-                            <td><h4>Questions asked</h4></td>
-                            
+                            <td><h4>Questions asked</h4></td>      
                     </tr>
                 <tr ng-repeat="message in messages">
                     <td>{{message.question}}</td></td>
@@ -44,6 +43,14 @@
                     <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
 					<td><a ng-click="answer($index)"><i class="icon-book"></i></a></td>
                 </tr>
+			
+				<tr ng-repeat="message in messages">
+			
+                    <td align="center">{{message.answer}}</td></td>
+                    <td><a ng-click="edit($index)"><i class="icon-edit"></i></a></td>
+                    <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
+				
+				</tr>
             </tbody>
         </table>
     </div>
@@ -69,20 +76,3 @@
 
         </div>
 		</br>
-<div class="container">
-    <div class="row">
-        <table class="table">
-            <tbody>
-                    <tr>
-                            <td><h4>Answer</h4></td>
-                            
-                    </tr>
-                <tr ng-repeat="message in messages">
-                    <td>{{message.answer}}</td></td>
-                    <td><a ng-click="edit($index)"><i class="icon-edit"></i></a></td>
-                    <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
