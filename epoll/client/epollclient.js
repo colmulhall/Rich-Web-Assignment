@@ -1,4 +1,5 @@
 Questions = new Meteor.Collection("questions");
+Answers = new Meteor.Collection("answers");
   
 Template.addquestion.events({
     'click input.add-question' : function(event){
@@ -10,9 +11,21 @@ Template.addquestion.events({
           });
         }
         document.getElementById("questionText").value = "";
-
     }
 });
+Template.addquestion.events({
+'click input.add-answer' : function(event){
+        event.preventDefault();
+        var answerText = document.getElementById("answerText").value;
+        if(answerText != "") {
+            Meteor.call("addAnswer",answerText,function(error , answerId){
+            console.log('added answer with Id .. '+answerId);
+          });
+        }
+        document.getElementById("answerText").value = "";
+    }
+});
+
 
 Template.question.events({
         'click': function () {
@@ -37,6 +50,8 @@ Template.question.events({
         Meteor.call("incrementNoVotes",questionId);
       }
     },
+
+  
 
    'click a.delete': function (event) { 
      event.preventDefault();

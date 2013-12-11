@@ -19,17 +19,22 @@
             </li>
           </ul>
         </div>
-    
+
+
+      
 </div>
 
         <div class="container" id="main">
                 {{#if currentUser}}
                         {{> addquestion}}
+
                 {{/if}}
                 {{#unless currentUser}}
                         {{> banner}}
                 {{/unless}}
                 {{> questions}}
+
+               
           </div>
 </body>
 
@@ -59,23 +64,32 @@
         {{/each}}
 </template>
 
+<template name="answers">
+        {{#each items}}
+        {{> answer}}
+        {{/each}}
+</template>
+
 <template name="question">
         <div>
                 <p class="lead">
 			                  
-                        {{questionText}}
+                       <h2 style="color:blue"> {{questionText}} {{answerText}} <h6> by {{username}} </h6> </h2> 
+                      
+                       <a class="pull-right btn btn-small btn-danger delete {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-remove" ></i>Delete {{delete}}</a>
+
+                       <a class="btn btn-small btn-success yes {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+
+                       <a class="btn btn-small btn-warning no {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                        </br>
                         </br>
 
-                        <a class="btn btn-small btn-success yes {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
 
-                        <a class="btn btn-small btn-warning no {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                       <textarea rows="3" class="input-xxlarge visible" name="answerText" id="answerText" placeholder="Add Your Answer"></textarea>
 
-                        <a class="pull-right btn btn-small btn-danger delete {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-remove" ></i>Delete {{delete}}</a>
-                      </br>
-                        <a class="pull-right btn btn-small btn-primary answer {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-share" ></i>Answer {{answer}}</a>
 
-                        
-
+                      <input type="button" class="btn-info add-answer" value="Anwer question"/>
+                         <br/>
                         <div class="line-separator"></div>
                 </p>
         </div>
