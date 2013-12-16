@@ -1,23 +1,17 @@
 //REFERENCING : METEOR.COM
 Questions = new Meteor.Collection("questions"); //create new collection
-var firstcomment;
+
   
 Template.addquestion.events({ // Template for adding a new comment
     'click input.add-answer' : function(event){ //When the function will be called
         event.preventDefault();
         var commentText = document.getElementById("commentText").value; //get value of the commentText area into a variable comment text
         if(commentText != "") { //check if commentText area is empty
-           if(firstcomment == null)
-          {
-            firstcomment = commentText;
-            document.getElementById("Text").value = firstcomment;
-          }
-          else
-          {
+
               Meteor.call("addAnswer",commentText,function(error , questionId){ // call function to add comment to collection
               console.log('added question with Id .. '+questionId); // log message to the console
           });
-          }
+          
         }
         document.getElementById("commentText").value = ""; //reset textarea to empty
     }
