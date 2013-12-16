@@ -1,19 +1,21 @@
 Questions = new Meteor.Collection("questions");
-Answers = new Meteor.Collection("answers");
+var votedyes = false;
+var votedno = false;
+
 
 Meteor.startup(function () {
     // code to run on server at startup
 });
 
 Meteor.methods({
-  addQuestion : function(questionText){
+  addAnswer : function(commentText){
     console.log('Adding Question');
    
     if(this.userId) {
         var user = Meteor.user().profile.name;
       }
         var questionId = Questions.insert({
-          'questionText' : questionText,
+          'commentText' : commentText,
           'submittedOn': new Date(),
           'submittedBy' : Meteor.user(),
           'username' : user
@@ -21,38 +23,49 @@ Meteor.methods({
     return questionId;
   },
 
-  addAnswer : function(answerText){
-    console.log('Adding Answer');
-    if(this.userId) {
-        var user = Meteor.user().profile.name;
-      }
-        var answerId = Answers.insert({
-          'questionText' : questionText,
-          'submittedOn': new Date(),
-          'submittedBy' : Meteor.user(),
-          'username' : user
-      });
-    return answerId;
+  incrementlikeVotes : function(questionId){
+    console.log(questionId);
+
+    if(!votedyes)
+    {
+      Questions.update(questionId,{$inc : {'like':1}});
+      votedyes = true;
+    }
+    if(votedno)
+    {
+      votedyno = false;
+      Questions.update(questionId,{$inc : {'like':-1}});
+    }
+    
   },
 
-  incrementYesVotes : function(questionId){
+  incrementdislikeVotes : function(questionId){
     console.log(questionId);
-    Questions.update(questionId,{$inc : {'yes':1}});
+
+    if(!votedyno)
+    {
+      Questions.update(questionId,{$inc : {'dislike':1}});
+      votedno = true;
+    }
+    if(votedyes)
+    {
+      votedyes = false;
+      Questions.update(questionId,{$inc : {'dislike':-1}});
+    }
+    
   },
 
-  incrementNoVotes : function(questionId){
+  deleteComment : function(questionId){
     console.log(questionId);
-    Questions.update(questionId,{$inc : {'no':1}});
-  },
+    
+    var user = Meteor.user().profile.name;
+    var questionUser = Questions.findOne(questionId);
 
-  answerQuestion : function(){
-    console.log(answerId);
-    document.getElementById("answerText").class = "visible";
-    document.getElementById("answerbut").class = "visible";
-  },  
-
-  deleteQuestion : function(questionId){
-    console.log(questionId);
-    Questions.remove(questionId);
+    if(user == questionUser.username)
+    {
+      Questions.remove(questionId);
+    }
+    else
+      console.log("Unable to remove. Not your message");
   }
 });

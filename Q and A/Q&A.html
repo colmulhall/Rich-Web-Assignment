@@ -1,7 +1,7 @@
 <head>
   <title>Q & A</title>
 
-  <link rel="stylesheet" type="text/css" href="public/epoll.css">
+  <link rel="stylesheet" type="text/css" href="public/Q&A.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
           <a class="brand" href="/">Q & A</a>
           <ul class="navbar pull-right">
             <li>
-              {{loginButtons}}
+              {{loginButtons allign="left"}}
             </li>
           </ul>
         </div>
@@ -39,7 +39,7 @@
                     <div class="span6">
                               <div class="well">
                          <h4>Sign in to submit new questions or to vote on existing questions.</h4>
-                         {{loginButtons}}
+                         {{loginButtons allign="right"}}
                               </div>
                         </div>
                 </div>
@@ -47,44 +47,37 @@
 </template>
 <template name="addquestion">
   
-  <textarea rows="3" class="input-xxlarge" name="questionText" id="questionText" placeholder="Add Your Question"></textarea>
+  <textarea rows="3" class="input-xxlarge" name="commentText" id="commentText" placeholder=" Write Comment"></textarea>
   <br/>
-  <input type="button" class="btn-info add-question" value="Add Question"/>
+  <input type="button" class="btn-info add-answer icon-comment" value="Comment"/>
 </template>
 
 <template name="questions">
-        <h2>All Questions</h2>
+        <h2>All comments</h2>
         <div class="line-separator"></div>
         {{#each items}}
         {{> question}}
         {{/each}}
 </template>
 
-<template name="answers">
-        {{#each items}}
-        {{> answer}}
-        {{/each}}
-</template>
 
 <template name="question">
         <div>
                 <p class="lead">
 
-                       <h2 style="color:blue"> {{questionText}} {{answerText}} <h6> by {{username}}</h6> </h2> 
+                       <h2 style="color:blue"> {{commentText}}  <h6> by {{username }}</h6> </h2> 
                       
                        <a class="pull-right btn btn-small btn-danger delete {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-remove" ></i>Delete {{delete}}</a>
 
-                       <a class="btn btn-small btn-success yes {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+                       <a class="pull-right btn btn-small btn-primary quote {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-embed" ></i> Quote {{Quote}}</a>
 
-                       <a class="btn btn-small btn-warning no {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+                       <a class="btn btn-small btn-success like {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Like {{like}}</a>
+
+                       <a class="btn btn-small btn-warning dislike {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> Dislike {{dislike}}</a>
                         </br>
                         </br>
 
-                       <textarea rows="3" class="input-xxlarge visible" name="answerText" id="answerText" placeholder="Add Your Answer"></textarea>
-
-
-                      <input type="button" class="btn-info add-answer" value="Anwer question"/>
-                         <br/>
+                      
                         <div class="line-separator"></div>
                 </p>
         </div>
