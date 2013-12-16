@@ -1,7 +1,5 @@
 <head>
-  <title>Q&A</title>
-
-  <title>Q and A : Ask any question.</title>
+  <title>Q & A</title>
 
   <link rel="stylesheet" type="text/css" href="public/epoll.css">
 </head>
@@ -20,9 +18,7 @@
           </ul>
         </div>
 
-
-      
-</div>
+      </div>
 
         <div class="container" id="main">
                 {{#if currentUser}}
@@ -33,9 +29,8 @@
                         {{> banner}}
                 {{/unless}}
                 {{> questions}}
-
-               
           </div>
+
 </body>
 
 <template name="banner">
@@ -43,7 +38,7 @@
                 <div class="row">
                     <div class="span6">
                               <div class="well">
-                         <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
+                         <h4>Sign in to submit new questions or to vote on existing questions.</h4>
                          {{loginButtons}}
                               </div>
                         </div>
@@ -59,6 +54,7 @@
 
 <template name="questions">
         <h2>All Questions</h2>
+        <div class="line-separator"></div>
         {{#each items}}
         {{> question}}
         {{/each}}
@@ -73,8 +69,8 @@
 <template name="question">
         <div>
                 <p class="lead">
-			                  
-                       <h2 style="color:blue"> {{questionText}} {{answerText}} <h6> by {{username}} </h6> </h2> 
+
+                       <h2 style="color:blue"> {{questionText}} {{answerText}} <h6> by {{username}}</h6> </h2> 
                       
                        <a class="pull-right btn btn-small btn-danger delete {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-remove" ></i>Delete {{delete}}</a>
 
@@ -83,7 +79,6 @@
                        <a class="btn btn-small btn-warning no {{#unless currentUser}}invisible{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
                         </br>
                         </br>
-
 
                        <textarea rows="3" class="input-xxlarge visible" name="answerText" id="answerText" placeholder="Add Your Answer"></textarea>
 

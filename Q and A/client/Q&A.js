@@ -13,6 +13,7 @@ Template.addquestion.events({
         document.getElementById("questionText").value = "";
     }
 });
+
 Template.addquestion.events({
 'click input.add-answer' : function(event){
         event.preventDefault();
